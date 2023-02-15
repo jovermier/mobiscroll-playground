@@ -5,12 +5,11 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended',
   ],
-  plugins: ['react', '@typescript-eslint', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'react-hooks', 'react-refresh'],
   rules: {
     'react/prop-types': 0,
-    indent: ['error', 2],
     'linebreak-style': 1,
-    quotes: ['error', 'double'],
+    'react-hooks/exhaustive-deps': 'warn',
   },
   parserOptions: {
     ecmaVersion: 2021,

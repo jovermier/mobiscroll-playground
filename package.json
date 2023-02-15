@@ -1,8 +1,9 @@
 {
   "name": "mobiscroll-playground",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -11,23 +12,47 @@
     "format": "prettier --write \"./src/**/*.{ts,tsx,js,jsx,json,md}\""
   },
   "dependencies": {
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
+    "@hookform/resolvers": "2.9.11",
     "@mobiscroll/react": "5.22.0",
-    "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@mui/material": "5.11.9",
+    "date-fns": "2.29.3",
+    "lodash": "4.17.21",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.43.1",
+    "vite-plugin-eslint": "1.8.1",
+    "vite-tsconfig-paths": "4.0.5",
+    "zod": "3.20.6"
   },
   "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
+    "@types/lodash": "4.14.191",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "5.52.0",
     "@typescript-eslint/parser": "5.52.0",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react": "3.1.0",
     "eslint": "8.34.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "eslint-plugin-react-refresh": "0.3.4",
+    "prettier": "2.8.4",
+    "typescript": "4.9.5",
+    "vite": "4.1.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

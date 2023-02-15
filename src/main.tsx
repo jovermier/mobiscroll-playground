@@ -1,12 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "@mobiscroll/react/dist/css/mobiscroll.min.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 
-import App from "./App";
-import "./index.css";
+import App from './App';
+import { theme } from './theme';
+import './index.css';
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>,
 );
