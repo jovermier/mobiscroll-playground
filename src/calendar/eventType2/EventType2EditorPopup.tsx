@@ -23,10 +23,10 @@ import { TDatepickerControl } from '@mobiscroll/react/dist/src/core/components/d
 import { Controller } from 'react-hook-form';
 import { format } from 'date-fns';
 
+import { EventType2Context } from 'context-providers/EventType2DataProvider';
 import { ColorPickerPopup } from 'calendar/components/ColorPickerPopup';
-import { EventType2Form, useEventType2Events } from './useEventType2Events';
-import { EventType2Context } from 'EventType2DataProvider';
 import { mobiDateToDate } from 'utils/date';
+import { EventType2Form, useEventType2Events } from './useEventType2Events';
 import { EventType2 } from 'calendar/data-types';
 
 const responsivePopup = {
@@ -157,7 +157,7 @@ export const EventType2Popup = ({ dataControls, ...props }: Data1PopupProps) => 
   return (
     <Popup
       ref={popupRef}
-      display="bottom"
+      display={props.anchor ? 'bottom' : 'center'}
       fullScreen={true}
       contentPadding={false}
       headerText={headerText}

@@ -4,22 +4,23 @@ import {
   MbscCalendarEvent,
   MbscEventcalendarView,
   MbscEventCreatedEvent,
-  MbscEventUpdatedEvent,
   MbscSelectedDateChangeEvent,
   MbscEventClickEvent,
+  MbscEventUpdateEvent,
+  MbscEventDragEvent,
 } from '@mobiscroll/react';
 import { useCallback, useContext, useMemo, useState } from 'react';
 import { compact } from 'lodash';
 
+import { EventType1Context } from 'context-providers/EventType1DataProvider';
+import { EventType2Context } from 'context-providers/EventType2DataProvider';
 import { mobiDateToDate } from 'utils/date';
-import { EventType1Popup, useEventType1Events } from './eventType1';
-import { EventPickerPopup, EventTypeOption } from './components/EventTypePopup';
 import { EventType1, EventType2 } from './data-types';
+import { EventPickerPopup, EventTypeOption } from './components/EventTypePopup';
+import { EventType1Popup, useEventType1Events } from './eventType1';
+import { EventType2Popup, useEventType2Events } from './eventType2';
 
 import './calendar.css';
-import { EventType1Context } from 'EventType1DataProvider';
-import { EventType2Popup, useEventType2Events } from './eventType2';
-import { EventType2Context } from 'EventType2DataProvider';
 
 setOptions({
   theme: 'ios',
@@ -99,8 +100,9 @@ export const Calendar = () => {
     setEventSelectOpen(true);
   }, []);
 
-  const onEventUpdated = useCallback(
-    ({ event }: MbscEventUpdatedEvent) => {
+  const onEventUpdate = useCallback(
+    ({ event, domEvent }: MbscEventUpdateEvent) => {
+      setAnchor(domEvent.target);
       switch (event.__typename) {
         case 'eventType1':
           data1State.loadForm(event as EventType1);
@@ -111,9 +113,14 @@ export const Calendar = () => {
           setEventType2Open(true);
           break;
       }
+      return false;
     },
     [data1State, data2State],
   );
+
+  const onEventDragEnd = useCallback(({ domEvent }: MbscEventDragEvent) => {
+    setAnchor(domEvent.target);
+  }, []);
 
   const eventType1CloseHandler = useCallback(() => {
     setEventType1Open(false);
@@ -142,10 +149,9 @@ export const Calendar = () => {
           setEventType2Open(true);
           break;
       }
-      setEventSelectOpen(false);
-      setTempEvent(undefined);
+      eventTypeCloseHandler();
     },
-    [data1State, data2State, tempEvent],
+    [data1State, data2State, eventTypeCloseHandler, tempEvent],
   );
 
   return (
@@ -162,8 +168,9 @@ export const Calendar = () => {
         selectedDate={mySelectedDate}
         onSelectedDateChange={onSelectedDateChange}
         onEventClick={onEventClick}
+        onEventUpdate={onEventUpdate}
         onEventCreated={onEventCreated}
-        onEventUpdated={onEventUpdated}
+        onEventDragEnd={onEventDragEnd}
       />
       <EventPickerPopup
         anchor={anchor}

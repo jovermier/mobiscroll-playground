@@ -72,7 +72,7 @@ export const useEventType1Events = ({ events: eventsInput }: { events: EventType
 
   const events = useMemo(
     () =>
-      formEvent.id?.length > 0
+      formEvent.id && formEvent.id.length > 0
         ? [...eventsInput.filter((e) => e.id !== formEvent.id), formToEvent(formEvent)]
         : [...eventsInput],
     [eventsInput, formEvent],
