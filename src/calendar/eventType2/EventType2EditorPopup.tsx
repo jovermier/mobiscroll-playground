@@ -27,7 +27,7 @@ import { EventType2Context } from 'context-providers/EventType2DataProvider';
 import { ColorPickerPopup } from 'calendar/components/ColorPickerPopup';
 import { mobiDateToDate } from 'utils/date';
 import { EventType2Form, useEventType2Events } from './useEventType2Events';
-import { EventType2 } from 'calendar/data-types';
+import { EventType2 } from 'data-types';
 
 const responsivePopup = {
   medium: {
@@ -167,7 +167,7 @@ export const EventType2Popup = ({ dataControls, ...props }: Data1PopupProps) => 
     >
       <div className="mbsc-form-group">
         <Input label="Title" {...register('title')} />
-        <Textarea label="Description" {...register('description')} />
+        <Textarea label="Notes" {...register('notes')} />
       </div>
       <div className="mbsc-form-group">
         <Controller

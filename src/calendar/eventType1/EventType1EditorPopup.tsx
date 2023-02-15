@@ -27,7 +27,7 @@ import { EventType1Context } from 'context-providers/EventType1DataProvider';
 import { ColorPickerPopup } from 'calendar/components/ColorPickerPopup';
 import { mobiDateToDate } from 'utils/date';
 import { EventType1Form, useEventType1Events } from './useEventType1Events';
-import { EventType1 } from 'calendar/data-types';
+import { EventType1 } from 'data-types';
 
 const responsivePopup = {
   medium: {

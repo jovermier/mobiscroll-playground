@@ -12,7 +12,7 @@ export type EventType2Form = {
   id: string;
   createdAt?: Date;
   title?: string;
-  description?: string;
+  notes?: string;
   start?: Date | null;
   end?: Date | null;
   allDay: boolean;
@@ -24,7 +24,7 @@ const formSchema = z.object({
   id: z.string().min(1),
   createdAt: z.date().optional(),
   title: z.string().trim().min(1),
-  description: z.string().trim().optional(),
+  notes: z.string().trim().optional(),
   start: z.date(),
   end: z.date(),
   allDay: z.boolean(),
@@ -37,7 +37,7 @@ const formToEvent = (form: EventType2Form): EventType2 => {
     __typename: 'eventType2',
     id: form.id,
     title: form.title,
-    description: form.description,
+    notes: form.notes,
     start: form.start ?? undefined,
     end: form.end ?? undefined,
     allDay: form.allDay,
@@ -58,7 +58,7 @@ export const useEventType2Events = ({ events: eventsInput }: { events: EventType
         __typename: 'eventType2',
         id: event?.id?.toString() || '',
         title: event?.title,
-        description: event?.description,
+        notes: event?.notes,
         start: mobiDateToDate(event?.start),
         end: mobiDateToDate(event?.end),
         allDay: event?.allDay ?? false,
