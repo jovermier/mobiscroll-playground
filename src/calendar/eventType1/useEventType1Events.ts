@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 
 import { mobiDateToDate } from 'utils/date';
-import { EventType1 } from '../data-types';
+import { EventType1 } from '../../data-types';
 
 export type EventType1Form = {
   __typename: 'eventType1';

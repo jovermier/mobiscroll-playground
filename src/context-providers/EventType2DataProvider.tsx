@@ -1,7 +1,7 @@
 import { createContext, useState, memo, useMemo, ReactNode } from 'react';
 
-import { eventType2Data } from 'calendar/data-mocks';
-import { EventType2 } from 'calendar/data-types';
+import { eventType2Data } from './data-mocks';
+import { EventType2 } from '../data-types';
 
 export type EventType2Api = [
   EventType2[],

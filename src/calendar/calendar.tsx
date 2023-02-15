@@ -15,7 +15,7 @@ import { compact } from 'lodash';
 import { EventType1Context } from 'context-providers/EventType1DataProvider';
 import { EventType2Context } from 'context-providers/EventType2DataProvider';
 import { mobiDateToDate } from 'utils/date';
-import { EventType1, EventType2 } from './data-types';
+import { EventType1, EventType2 } from '../data-types';
 import { EventPickerPopup, EventTypeOption } from './components/EventTypePopup';
 import { EventType1Popup, useEventType1Events } from './eventType1';
 import { EventType2Popup, useEventType2Events } from './eventType2';

@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-import { EventType1, EventType2 } from './data-types';
+import { EventType1, EventType2 } from '../data-types';
 
 const todayString = format(new Date(), 'yyyy-MM-dd');
 const tomorrowString = format(new Date(new Date().setDate(new Date().getDate() + 1)), 'yyyy-MM-dd');
