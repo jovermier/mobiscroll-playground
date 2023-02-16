@@ -69,9 +69,33 @@ export const Calendar = () => {
     return compact([...data1State.events, ...data2State.events, tempEvent]);
   }, [data1State.events, data2State.events, tempEvent]);
 
-  // scheduler options
   const onSelectedDateChange = useCallback((event: MbscSelectedDateChangeEvent) => {
     setSelectedDate(mobiDateToDate(event.date));
+  }, []);
+
+  const eventType1CloseHandler = useCallback(() => {
+    setEventType1Open(false);
+    data1State.loadForm({});
+  }, [data1State]);
+
+  const eventType2CloseHandler = useCallback(() => {
+    setEventType2Open(false);
+    data2State.loadForm({});
+  }, [data2State]);
+
+  const eventTypeCloseHandler = useCallback(() => {
+    setEventSelectOpen(false);
+    setTempEvent(undefined);
+  }, []);
+
+  const onEventDragEnd = useCallback(({ domEvent }: MbscEventDragEvent) => {
+    setAnchor(domEvent.target);
+  }, []);
+
+  const onEventCreated = useCallback(({ event, target }: MbscEventCreatedEvent) => {
+    setTempEvent(event);
+    setAnchor(target);
+    setEventSelectOpen(true);
   }, []);
 
   const onEventClick = useCallback(
@@ -91,12 +115,6 @@ export const Calendar = () => {
     [data1State, data2State],
   );
 
-  const onEventCreated = useCallback(({ event, target }: MbscEventCreatedEvent) => {
-    setTempEvent(event);
-    setAnchor(target);
-    setEventSelectOpen(true);
-  }, []);
-
   const onEventUpdate = useCallback(
     ({ event, domEvent }: MbscEventUpdateEvent) => {
       setAnchor(domEvent.target);
@@ -114,25 +132,6 @@ export const Calendar = () => {
     },
     [data1State, data2State],
   );
-
-  const onEventDragEnd = useCallback(({ domEvent }: MbscEventDragEvent) => {
-    setAnchor(domEvent.target);
-  }, []);
-
-  const eventType1CloseHandler = useCallback(() => {
-    setEventType1Open(false);
-    data1State.loadForm({});
-  }, [data1State]);
-
-  const eventType2CloseHandler = useCallback(() => {
-    setEventType2Open(false);
-    data2State.loadForm({});
-  }, [data2State]);
-
-  const eventTypeCloseHandler = useCallback(() => {
-    setEventSelectOpen(false);
-    setTempEvent(undefined);
-  }, []);
 
   const eventTypeChangeHandler = useCallback(
     (eventTypeId?: string) => {
