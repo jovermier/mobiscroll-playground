@@ -15,7 +15,7 @@
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
     "@hookform/resolvers": "2.9.11",
-    "@mobiscroll/react": "5.22.0",
+    "@mobiscroll/react": "5.22.1",
     "@mui/material": "5.11.9",
     "date-fns": "2.29.3",
     "lodash": "4.17.21",

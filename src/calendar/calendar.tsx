@@ -76,9 +76,6 @@ export const Calendar = () => {
 
   const onEventClick = useCallback(
     ({ event, domEvent }: MbscEventClickEvent) => {
-      // setEdit(true);
-      // setTempEvent({ ...args.event });
-      // fill popup form with event data
       switch (event.__typename) {
         case 'eventType1':
           data1State.loadForm(event as EventType1);

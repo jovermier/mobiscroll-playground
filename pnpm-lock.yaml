@@ -4,7 +4,7 @@ specifiers:
   '@emotion/react': 11.10.5
   '@emotion/styled': 11.10.5
   '@hookform/resolvers': 2.9.11
-  '@mobiscroll/react': 5.22.0
+  '@mobiscroll/react': 5.22.1
   '@mui/material': 5.11.9
   '@types/lodash': 4.14.191
   '@types/react': 18.0.28
@@ -34,7 +34,7 @@ dependencies:
   '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
   '@emotion/styled': 11.10.5_g6cddab2ma6w7rmdnelgn6dq2a
   '@hookform/resolvers': 2.9.11_react-hook-form@7.43.1
-  '@mobiscroll/react': 5.22.0_biqbaboplfbrettd7655fr4n2y
+  '@mobiscroll/react': 5.22.1_biqbaboplfbrettd7655fr4n2y
   '@mui/material': 5.11.9_acl7mc3llczqccvmbrsweq6vga
   date-fns: 2.29.3
   lodash: 4.17.21
@@ -680,8 +680,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@mobiscroll/react/5.22.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-y81ZiOw/4DJP/8LCvE3KYt57svJHOE3sq2tTZs48vV4f+HN7/l+QhZTKjqBI03uORGlPvln5gUTcbFeJKOY9VQ==}
+  /@mobiscroll/react/5.22.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-poSnz8cNW9X5/HxQsLOP4vCBnza0W2b8PIJicUypxFw66Exhwtcba2J2P26gwMt75ud7jGzOfUWCCXQR3oxT3A==}
     peerDependencies:
       react: '>=15.3.0'
       react-dom: '>=15.3.0'
